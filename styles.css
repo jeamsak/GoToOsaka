@@ -40,7 +40,7 @@
     outline:none; box-shadow:var(--shadow);
   }
   .controls input{ flex:1; }
-  .controls select{ width:160px; }
+  .controls select{ width:260px; }
   
   .content{ width:min(1100px,92vw); margin:28px auto 80px; }
   .card-grid{
@@ -70,7 +70,7 @@
     position:absolute; inset:0; background:rgba(0,0,0,.65); backdrop-filter: blur(6px);
   }
   .modal__dialog{
-    position:relative; z-index:1; width:min(980px,92vw); max-height:90vh; overflow:auto;
+    position:relative; z-index:9999; width:min(980px,92vw); max-height:90vh; overflow:auto;
     background:linear-gradient(180deg,#0f1320,#0b0e17);
     border:1px solid rgba(255,255,255,.08); border-radius:20px; box-shadow:var(--shadow);
     display:grid; grid-template-columns: 1.3fr 1fr;
@@ -91,4 +91,33 @@
     padding:10px 14px; border-radius:12px; background:var(--accent); color:#0b0f16;
     border:none; text-decoration:none; font-weight:700;
   }
+  
+  .controls select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    padding-right: 44px;            /* เผื่อพื้นที่ให้ไอคอน */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23e8edf2'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: right 14px center;  /* ระยะจากขอบขวา */
+  }
+  
+  /* ซ่อนปุ่ม dropdown ของ IE/Edge รุ่นเก่า */
+  .controls select::-ms-expand{ display:none; }
+.controls select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  padding-right: 44px;            /* เผื่อพื้นที่ให้ไอคอน */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23e8edf2'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: right 14px center;  /* ระยะจากขอบขวา */
+}
+
+/* ซ่อนปุ่ม dropdown ของ IE/Edge รุ่นเก่า */
+.controls select::-ms-expand{ display:none; }
   
