@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Awesome Places</h1>
+    </header>
+
+    <div id="map"></div>
+
+    <main>
+        <div class="controls">
+            <input type="text" id="search-box" placeholder="ค้นหา...">
+            <select id="category-select"></select>
+        </div>
+        <div id="card-grid" class="grid-container"></div>
+        <button id="load-more" style="display: none;">Load More</button>
+    </main>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQFrArPZpsqVzYmH6EX9Umtm0AVXAektk&callback=initialize" async defer></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
