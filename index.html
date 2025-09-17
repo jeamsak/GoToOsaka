@@ -1,29 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Travel Map</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Go To Osaka</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>My Awesome Places</h1>
-    </header>
+  <header class="site-header">
+    <h1>Go To Osaka</h1>
+  </header>
 
+  <!-- Hero Map -->
+  <section class="map-hero">
     <div id="map"></div>
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="ค้นหา..." />
+      <select id="categorySelect">
+        <option value="all">All</option>
+      </select>
+    </div>
+  </section>
 
-    <main>
-        <div class="controls">
-            <input type="text" id="search-box" placeholder="ค้นหา...">
-            <select id="category-select"></select>
+  <!-- Cards List -->
+  <main class="content">
+    <div id="cardList" class="card-grid"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" aria-label="ปิด" data-close>&times;</button>
+      <div class="modal__media">
+        <img id="modalImage" alt="" />
+      </div>
+      <div class="modal__body">
+        <div class="badge" id="modalCategory"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalTravel" class="muted"></p>
+
+        <div class="modal__mapwrap">
+          <div id="modalMap"></div>
         </div>
-        <div id="card-grid" class="grid-container"></div>
-        <button id="load-more" style="display: none;">Load More</button>
-    </main>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQFrArPZpsqVzYmH6EX9Umtm0AVXAektk&callback=initialize" async defer></script>
-    
-    <script src="script.js"></script>
+
+        <div class="modal__actions">
+          <a id="dirBtn" class="btn" target="_blank" rel="noopener">นำทางใน Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script src="app.js"></script>
+  <!-- โหลด Maps JS + เรียก initMap() เมื่อพร้อม -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQFrArPZpsqVzYmH6EX9Umtm0AVXAektk&callback=initMap"></script>
 </body>
 </html>
